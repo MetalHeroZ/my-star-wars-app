@@ -9,10 +9,11 @@ function useWaitPromise(thePromise) {
     try {
       const response = await thePromise();
       setData(response.data);
+      setReady(true);
     } catch (error) {
       setError(true);
+      setReady(true);
     }
-    setReady(true);
   }
 
   useEffect( () => {
