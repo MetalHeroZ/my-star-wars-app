@@ -1,3 +1,5 @@
 export const starWarsEndpoints = {
-  getPeople: 'people',
+  getCharacters: 'people',
+  getPeople: (id) => `people/${id}`, 
+  getPlanet: 'planet'
 }

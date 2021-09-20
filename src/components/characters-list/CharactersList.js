@@ -1,20 +1,27 @@
-import CharactersContext from "@/context/CharactersContext";
-import { goToDetails } from "@/routes/routes.constants";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import CharactersContext from "@/context/CharactersContext";
 import Character from "./Character";
+import ErrorMessage from "../shared/ErrorMessage";
+import LoadingMessage from "../shared/LoadingMessage";
 
 export default function CharactersList() {
   const { ready, data, error } = useContext(CharactersContext);
   
   return (
     <div className="container space-y-8 mt-9">
-      <h1 className="font-bold text-xl text-center"> 
+      <h1 className="font-bold text-2xl text-center text-blue-500"> 
         Meet the characters of <b>Star Wars!</b>
       </h1>
+
+      {!ready && (
+        <div className="flex justify-center items-center">
+          <LoadingMessage /> 
+        </div>
+      )}
+
       {ready && !error && ( 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {data && data.results.map(character => 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {data.results.map(character => 
             <Character 
               key={character.url}
               characterData={character} 
@@ -22,22 +29,8 @@ export default function CharactersList() {
           )}
         </div>
       )}
-
-      {!ready && (
-        <div className="flex justify-center items-center"> 
-          <span className="font-bold text-center">
-            ¯\_(ツ)_/¯ <br />
-            waiting for the data ...
-          </span> 
-        </div>
-      )}
       
-      {ready && error && (
-        <div className="font-bold text-center">
-          (╯°□°）╯︵ ┻━┻ <br />
-          Something went wrong.
-        </div>
-      )}
+      {ready && error && <ErrorMessage />}
     </div>
   )
 }
