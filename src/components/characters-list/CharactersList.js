@@ -5,8 +5,7 @@ import ErrorMessage from "../shared/ErrorMessage";
 import LoadingMessage from "../shared/LoadingMessage";
 
 export default function CharactersList() {
-  const { context } = useContext(CharactersContext);
-  const { ready, data, error } = context;
+  const { ready, data, error } = useContext(CharactersContext);
   return (
     <div className="container space-y-8 mt-9">
       <h1 className="font-bold text-2xl text-center text-blue-500"> 

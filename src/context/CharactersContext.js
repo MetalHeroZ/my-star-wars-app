@@ -5,9 +5,9 @@ import { createContext } from "react";
 const CharactersContext = createContext();
 
 export const CharactersContextProvider = ({ children }) => {
-  const characters = useWaitPromise(getCharacters);
+  const { ready, data, error } = useWaitPromise(getCharacters);
   return (
-    <CharactersContext.Provider value={characters}>
+    <CharactersContext.Provider value={{ ready, data, error }}>
       {children}
     </CharactersContext.Provider>
   )
