@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.3.0",
-    "@tailwindcss/line-clamp": "^0.2.1",
-    "@testing-library/jest-dom": "^5.11.4",
+    "@craco/craco": "^6.4.3",
+    "@tailwindcss/line-clamp": "^0.2.2",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
@@ -41,8 +41,13 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }

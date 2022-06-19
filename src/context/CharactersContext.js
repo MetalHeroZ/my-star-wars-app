@@ -1,9 +1,16 @@
+import useWaitPromise from "@/hooks/useWaitPromise";
+import { getCharacters } from "@/http/starWars.service";
 import { createContext } from "react";
 
-const CharactersContext = createContext({
-  ready: false,
-  data: null,
-  error: false,
-});
+const CharactersContext = createContext();
+
+export const CharactersContextProvider = ({ children }) => {
+  const characters = useWaitPromise(getCharacters);
+  return (
+    <CharactersContext.Provider value={characters}>
+      {children}
+    </CharactersContext.Provider>
+  )
+};
 
 export default CharactersContext;
