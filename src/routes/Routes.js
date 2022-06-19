@@ -3,7 +3,7 @@ import { details, home } from "./routes.constants";
 import CharacterDetails from "@/components/character-details/CharacterDetails";
 import CharactersList from "@/components/characters-list/CharactersList";
 
-function App() {
+function Routes() {
   return (
     <Router>
       <Switch>
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default Routes;

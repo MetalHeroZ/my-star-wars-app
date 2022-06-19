@@ -12,7 +12,7 @@ function Details({ details }) {
   ];
   return (
     <div className="panel px-5 py-3 space-y-4">
-      <h1 className="font-bold text-2xl">{name}</h1>
+      <h1 className="font-bold text-2xl text-blue-500">{name}</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <DataSets dataset={getDataSet()} />
       </div>
